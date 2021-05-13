@@ -24,8 +24,13 @@ const fun = async () => {
   const fileBuffer = await readFile("sample.json");
   const obj = JSON.parse(fileBuffer.toString());
 
-  const { phoneNumbers, lastName, firstName, address } = obj;
-  const { state, city, streetAddress } = address;
+  const {
+    phoneNumbers,
+    lastName,
+    firstName,
+    address: { state, city, streetAddress },
+  } = obj;
+  // const { state, city, streetAddress } = address;
 
   console.log(
     `${phoneNumbers.length} ${firstName} ${lastName} ${state}, ${city}, ${streetAddress}`
